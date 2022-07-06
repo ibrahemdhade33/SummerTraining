@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script>
+        
+    function getdata(){
+        var data=[]
+        httpReq = "http://localhost:9000/aaa/allEmployees"
+        Req =new  XMLHttpRequest()
+        Req.open("GET",httpReq)
+        Req.send()
+        
+        Req.onload = function(){
+           const data=JSON.parse(Req.response)
+           console.log(data)
+        }
+        
+        }
+        </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<button onclick="getdata()">Show Employees</button>
+</body>
+
+</html>

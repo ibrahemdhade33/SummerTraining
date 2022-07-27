@@ -1,0 +1,24 @@
+package com.example.remoatecommandsexcuter.ParsereStrategy;
+import com.example.remoatecommandsexcuter.Components.ComponentsParent;
+import com.example.remoatecommandsexcuter.Components.IpinterfaceBriefComp;
+
+import javax.persistence.Transient;
+import java.util.ArrayList;
+import java.util.Collection;
+
+
+
+public class IpInternetBreifParser extends Parser{
+
+    @Override
+    public Collection<ComponentsParent> parseCommand(String CommandOutput) {
+        result = new ArrayList<>() ;
+        String []split = CommandOutput.split("\n");
+        for (int i = 2; i < split.length; i++) {
+            split[i] = split[i].replaceAll("\\s+", " ");;
+           String[] split1 = split[i].split(" ") ;
+           result.add(new IpinterfaceBriefComp(split1[0],split1[1],split1[2].equals("YES"),split1[3],split1[4],split1[5]));
+        }
+            return result ;
+    }
+}

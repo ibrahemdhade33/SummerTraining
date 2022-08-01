@@ -1,4 +1,4 @@
-package com.example.remoatecommandsexcuter.SSHConnection;
+package com.example.remoatecommandsexcuter.Service.Helper;
 
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -7,11 +7,7 @@ import java.io.*;
 
 @NoArgsConstructor
 @Service
-public class RouterCommandExcuter {
-
-
-
-
+public class CommandExcuterUsingSSH {
 
     public String readFile(String path) throws IOException {
         File file =new File(path) ;
@@ -20,7 +16,7 @@ public class RouterCommandExcuter {
         String st;
         StringBuilder result = new StringBuilder();
         while ((st = br.readLine()) != null)
-            result.append("\n"+st);
+            result.append("\n").append(st);
         return result.toString();
     }
 

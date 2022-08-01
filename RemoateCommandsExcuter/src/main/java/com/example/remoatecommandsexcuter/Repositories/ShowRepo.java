@@ -1,5 +1,5 @@
 package com.example.remoatecommandsexcuter.Repositories;
-import com.example.remoatecommandsexcuter.Command.Show;
+import com.example.remoatecommandsexcuter.Entities.Show;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;

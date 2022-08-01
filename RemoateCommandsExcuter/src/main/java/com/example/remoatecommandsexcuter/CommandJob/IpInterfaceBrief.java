@@ -1,5 +1,5 @@
 package com.example.remoatecommandsexcuter.CommandJob;
-import com.example.remoatecommandsexcuter.Command.Show;
+import com.example.remoatecommandsexcuter.Entities.Show;
 import com.example.remoatecommandsexcuter.ParsereStrategy.IpInternetBreifParser;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,8 +11,8 @@ public class IpInterfaceBrief extends Show {
     private String type = String.valueOf(Types.ip_interface_brief);
     public IpInterfaceBrief() {
         super();
-        CommandParser = new IpInternetBreifParser();
-        CommandParser.result = new ArrayList<>() ;
+        commandParser = new IpInternetBreifParser();
+        commandParser.result = new ArrayList<>() ;
     }
 
 

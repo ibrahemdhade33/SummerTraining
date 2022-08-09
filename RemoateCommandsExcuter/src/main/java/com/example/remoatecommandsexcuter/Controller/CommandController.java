@@ -1,13 +1,14 @@
 package com.example.remoatecommandsexcuter.Controller;
 import com.example.remoatecommandsexcuter.Command.CommandDocument;
+import com.example.remoatecommandsexcuter.DTO.Parameter;
 import com.example.remoatecommandsexcuter.Entities.Dir;
 import com.example.remoatecommandsexcuter.Entities.Show;
 import com.example.remoatecommandsexcuter.Service.CommandService;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.io.IOException;
 import java.util.List;
 @RestController
@@ -35,11 +36,17 @@ public class CommandController {
     }
 
     @RequestMapping(value = "/Command/Execute/SSH/Show/{type}",method = RequestMethod.GET)
-    public Show showExcute(@PathVariable("type") String type) throws IOException {
+    public Show showExcute(@PathVariable("type") String type) {
       return service.showExcute(type);
     }
-    @RequestMapping(value = "/Command/Execute/SSH/Dir/{type}",method = RequestMethod.GET)
-    public Dir dirExcute(@PathVariable("type") String type) throws IOException {
+    @RequestMapping(value = "/Command/Execute/TelNt/Dir/{type}",method = RequestMethod.GET)
+    public Dir dirExcute(@PathVariable("type") String type){
         return service.dirExcute(type);
+    }
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public ResponseEntity<String> login(@RequestBody Parameter loginInfo) throws IOException {
+
+        return service.login(loginInfo.getType(),loginInfo.getRemoteConnection());
+
     }
 }

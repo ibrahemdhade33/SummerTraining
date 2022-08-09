@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class CommandsMangerFactory {
 
     public Command getCommandObject(String type){
-        Command command =null ;
+
         if(type.equals(String.valueOf(Types.ip_interface_brief)))
             return new IpInterfaceBrief() ;
         else if(type.equals(String.valueOf(Types.bootflash)))

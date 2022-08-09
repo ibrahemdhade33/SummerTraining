@@ -1,5 +1,6 @@
 package com.example.remoatecommandsexcuter;
 import org.springframework.boot.SpringApplication;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
@@ -7,11 +8,13 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @SpringBootApplication
 @EnableMongoRepositories()
+
 public class RemoateCommandsExcuterApplication {
     public static void main(String[] args) {
         SpringApplication.run(RemoateCommandsExcuterApplication.class, args);
 
     }
+
 //    @Bean
 //    CommandLineRunner runner(ShowRepo briefRepo, CommandRepo commandRepo){
 //        return args -> {

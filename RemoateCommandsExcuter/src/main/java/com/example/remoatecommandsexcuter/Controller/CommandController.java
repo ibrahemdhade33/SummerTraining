@@ -35,17 +35,17 @@ public class CommandController {
         return service.getCommandsShowType(type);
     }
 
-    @RequestMapping(value = "/Command/Execute/SSH/Show/{type}",method = RequestMethod.GET)
-    public Show showExcute(@PathVariable("type") String type) {
+    @RequestMapping(value = "/Command/Execute/Show/{type}",method = RequestMethod.GET)
+    public Show showExcute(@PathVariable("type") String type) throws InterruptedException {
       return service.showExcute(type);
     }
-    @RequestMapping(value = "/Command/Execute/TelNt/Dir/{type}",method = RequestMethod.GET)
+    @RequestMapping(value = "/Command/Execute/Dir/{type}",method = RequestMethod.GET)
     public Dir dirExcute(@PathVariable("type") String type){
         return service.dirExcute(type);
     }
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Parameter loginInfo) throws IOException {
-
+        System.out.println(loginInfo.toString());
         return service.login(loginInfo.getType(),loginInfo.getRemoteConnection());
 
     }

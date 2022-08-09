@@ -4,20 +4,28 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public abstract class RemoteConnection {
+@Service
+public  class RemoteConnection {
     public String host ;
     public String userName ;
     public int port ;
     public String password ;
     public String enablePassword ;
-    public abstract void login() throws IOException;
+    public  void login() throws IOException, InterruptedException {
 
-    public abstract String runCommand(String s);
-    public abstract void disconnect();
+    }
+
+    public  String runCommand(String s){
+     return null;
+    }
+    public  void disconnect(){
+
+    }
 }

@@ -15,8 +15,11 @@ public class IpInternetBreifParser extends Parser {
         String []split = CommandOutput.split("\n");
         for (int i = 2; i < split.length; i++) {
             split[i] = split[i].replaceAll("\\s+", " ");
+
            String[] split1 = split[i].split(" ") ;
-           result.add(new IpinterfaceBriefComp(split1[0],split1[1],split1[2].equals("YES"),split1[3],split1[4],split1[5]));
+           if (split1.length > 1)
+            result.add(new IpinterfaceBriefComp(split1[0],split1[1],split1[2].equals("YES"),split1[3],split1[4],split1[5]));
+
         }
             return result ;
     }

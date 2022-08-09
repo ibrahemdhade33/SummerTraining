@@ -25,6 +25,7 @@ public class CommandService {
 
     @Autowired
    private CommandsMangerFactory factory ;
+    @Autowired
     RemoteConnection remoteConnection ;
     @Autowired
    private DirRepo dirRepo ;
@@ -42,8 +43,10 @@ public class CommandService {
         return showRepo.getCommandeType(type);
     }
 
-    public Show showExcute(String type)  {
-        String s=remoteConnection.runCommand("show " + type+"\n");
+    public Show showExcute(String type) throws InterruptedException {
+        String s=remoteConnection.runCommand("show " + type.replaceAll("_"," "));
+        System.out.print(s);
+        Thread.sleep(2000);
         Show sh =  (Show)factory.getCommandObject(type);
         sh.setInfo((List<ComponentsParent>) sh.getParsedCommand(s));
         showRepo.insert(sh);
@@ -75,6 +78,8 @@ public class CommandService {
         }
         catch (NoClassDefFoundError e){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("failed Authentication");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 

@@ -19,7 +19,7 @@ public class RemtotConnectionUsingTelNet extends RemoteConnection {
         StringBuilder stringBuilder;
         try {
             stringBuilder = new StringBuilder();
-            byte[] buf = new byte[1000000];
+            byte[] buf = new byte[1024];
             int len ;
             Thread.sleep(750L);
             while ((len = telnet.getInputStream().read(buf)) != 0) {
@@ -31,7 +31,7 @@ public class RemtotConnectionUsingTelNet extends RemoteConnection {
             return stringBuilder.toString();
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
         return null;
     }
@@ -65,16 +65,22 @@ public class RemtotConnectionUsingTelNet extends RemoteConnection {
         }
     }
     @Override
-    public void login() throws IOException {
+    public void login() throws IOException, InterruptedException {
         telnet.connect(host, port);
-         readUntil1();
-        write(userName);
-       readUntil1();
-        write(password);
-         readUntil1();
-        write("enable");
         readUntil1();
+        write(userName);
+        readUntil1();
+
+        write(password);
+
+        readUntil1();
+
+        write("enable");
+
+        readUntil1();
+
         write(enablePassword);
         readUntil1();
+
     }
 }

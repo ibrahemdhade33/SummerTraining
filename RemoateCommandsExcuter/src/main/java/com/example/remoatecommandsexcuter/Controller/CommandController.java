@@ -1,7 +1,6 @@
 package com.example.remoatecommandsexcuter.Controller;
 import com.example.remoatecommandsexcuter.Command.CommandDocument;
 import com.example.remoatecommandsexcuter.DTO.Parameter;
-import com.example.remoatecommandsexcuter.Entities.Dir;
 import com.example.remoatecommandsexcuter.Entities.Show;
 import com.example.remoatecommandsexcuter.Service.CommandService;
 
@@ -36,11 +35,11 @@ public class CommandController {
     }
 
     @RequestMapping(value = "/Command/Execute/Show/{type}",method = RequestMethod.GET)
-    public Show showExcute(@PathVariable("type") String type) throws InterruptedException {
+    public String showExcute(@PathVariable("type") String type)  throws InterruptedException {
       return service.showExcute(type);
     }
     @RequestMapping(value = "/Command/Execute/Dir/{type}",method = RequestMethod.GET)
-    public Dir dirExcute(@PathVariable("type") String type){
+    public String dirExcute(@PathVariable("type") String type){
         return service.dirExcute(type);
     }
     @PostMapping("/login")

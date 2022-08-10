@@ -47,13 +47,11 @@ public class RemtotConnectionUsingTelNet extends RemoteConnection {
     }
     @Override
     public String runCommand(String command) {
-        try {
+
             write(command);
             return readUntil1();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+
+
     }
     @Override
     public void disconnect() {
@@ -66,6 +64,7 @@ public class RemtotConnectionUsingTelNet extends RemoteConnection {
     }
     @Override
     public void login() throws IOException, InterruptedException {
+        try{
         telnet.connect(host, port);
         readUntil1();
         write(userName);
@@ -81,6 +80,12 @@ public class RemtotConnectionUsingTelNet extends RemoteConnection {
 
         write(enablePassword);
         readUntil1();
+        write("terminal length 0");
+            readUntil1();
+        }
+        catch (Exception e){
+
+        }
 
     }
 }

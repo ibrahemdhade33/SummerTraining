@@ -17,7 +17,7 @@ public class CommandsMangerFactory {
             return new VRF() ;
         else if(type.equals(String.valueOf(Types.Question)))
             return new StoragePartitions();
-        else if(type.equals(String.valueOf(Types.running_config)))
+        else if(type.equals("running-config"))
             return new RunningConfig() ;
         else if(type.equals(String.valueOf(Types.startup_config)))
             return new StartupConfig() ;

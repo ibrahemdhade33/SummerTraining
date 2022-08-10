@@ -43,27 +43,33 @@ public class CommandService {
         return showRepo.getCommandeType(type);
     }
 
-    public Show showExcute(String type) throws InterruptedException {
-        String s=remoteConnection.runCommand("show " + type.replaceAll("_"," "));
-        System.out.print(s);
-        Thread.sleep(2000);
-        Show sh =  (Show)factory.getCommandObject(type);
-        sh.setInfo((List<ComponentsParent>) sh.getParsedCommand(s));
-        showRepo.insert(sh);
-        return sh ;
+    public String showExcute(String type) throws InterruptedException {
+     //   try {
+            String output=remoteConnection.runCommand("show " + type.replaceAll("_"," "));
+        System.out.println(output);
+
+            Show sh =  (Show)factory.getCommandObject(type);
+
+            sh.setInfo((List<ComponentsParent>) sh.getParsedCommand(output));
+            showRepo.insert(sh);
+            return output ;
+       // }
+      //  catch (Exception e){
+            //return "failed to run command please log in or be shure that the command is right";
+       // }
     }
-    public Dir dirExcute(String type) {
+    public String dirExcute(String type) {
         try {
-            String outPut= remoteConnection.runCommand("dir " + type+"\n");
+            String output= remoteConnection.runCommand("dir " + type+"\n");
             Dir dir =  (Dir) factory.getCommandObject(type);
-            dir.setInfo((List<ComponentsParent>) dir.getParsedCommand(outPut));
+            dir.setInfo((List<ComponentsParent>) dir.getParsedCommand(output));
             dirRepo.insert(dir);
-            return dir ;
+            return output ;
         }
         catch (Exception e){
-            System.out.println(e.getMessage());
+            return "failed to run command please log in or be shure that the command is right";
         }
-        return null ;
+        
     }
     public ResponseEntity<String> login(String type, RemoteConnection connectionInfo) throws IOException {
         try{

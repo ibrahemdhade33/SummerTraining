@@ -1,4 +1,4 @@
-package jsh1;
+package jsch1;
 import java.io.*;
 import java.util.Properties;
 import com.jcraft.jsch.*;

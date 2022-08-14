@@ -9,19 +9,19 @@ public class CommandsMangerFactory {
 
     public Command getCommandObject(String type){
 
-        if(type.equals(String.valueOf(Types.ip_interface_brief)))
+        if(type.equals("ip interface brief"))
             return new IpInterfaceBrief() ;
-        else if(type.equals(String.valueOf(Types.bootflash)))
+        else if(type.equals("bootflash:"))
             return new BootFlashPartitions() ;
-        else if(type.equals(String.valueOf(Types.vrf)))
+        else if(type.equals("vrf"))
             return new VRF() ;
         else if(type.equals(String.valueOf(Types.Question)))
             return new StoragePartitions();
         else if(type.equals("running-config"))
             return new RunningConfig() ;
-        else if(type.equals(String.valueOf(Types.startup_config)))
+        else if(type.equals("startup-config"))
             return new StartupConfig() ;
-        else if(type.equals(String.valueOf(Types.version)))
+        else if(type.equals("version"))
             return new Version() ;
         return null ;
     }

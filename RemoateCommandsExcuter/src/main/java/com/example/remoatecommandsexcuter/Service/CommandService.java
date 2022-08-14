@@ -9,6 +9,7 @@ import com.example.remoatecommandsexcuter.Repositories.DirRepo;
 import com.example.remoatecommandsexcuter.Repositories.ShowRepo;
 import com.example.remoatecommandsexcuter.Service.Helper.RemoatConnectionFactory;
 import com.example.remoatecommandsexcuter.Service.Helper.RemoteConnection;
+import com.jcraft.jsch.JSchException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,6 @@ public class CommandService {
     private ShowRepo showRepo;
     @Autowired
     private CommandRepo commandRepo ;
-
     @Autowired
    private CommandsMangerFactory factory ;
     @Autowired
@@ -31,6 +31,7 @@ public class CommandService {
    private DirRepo dirRepo ;
     @Autowired
     private RemoatConnectionFactory remoatConnectionFactory ;
+    private String hostIp ;
     public List<CommandDocument> getCommands() {
         return commandRepo.findAll() ;
     }
@@ -43,33 +44,38 @@ public class CommandService {
         return showRepo.getCommandeType(type);
     }
 
-    public String showExcute(String type) throws InterruptedException {
-     //   try {
-            String output=remoteConnection.runCommand("show " + type.replaceAll("_"," "));
-        System.out.println(output);
+    public String showExcute(String type) {
+     try {
+            String output=remoteConnection.runCommand("show " + type);
+
 
             Show sh =  (Show)factory.getCommandObject(type);
 
             sh.setInfo((List<ComponentsParent>) sh.getParsedCommand(output));
+            sh.setHostIp(hostIp);
             showRepo.insert(sh);
+
             return output ;
-       // }
-      //  catch (Exception e){
-            //return "failed to run command please log in or be shure that the command is right";
-       // }
-    }
-    public String dirExcute(String type) {
+             }
+              catch (Exception e){
+            return "failed to run command please log in or be sure that the command is right";
+             }
+        }
+
+    public String dirExcute(String type){
         try {
-            String output= remoteConnection.runCommand("dir " + type+"\n");
+            String output= remoteConnection.runCommand("dir " + type);
             Dir dir =  (Dir) factory.getCommandObject(type);
             dir.setInfo((List<ComponentsParent>) dir.getParsedCommand(output));
+            dir.setHostIp(hostIp);
             dirRepo.insert(dir);
+
             return output ;
         }
         catch (Exception e){
-            return "failed to run command please log in or be shure that the command is right";
+            return "failed to run command please log in or be sure that the command is right";
         }
-        
+
     }
     public ResponseEntity<String> login(String type, RemoteConnection connectionInfo) throws IOException {
         try{
@@ -79,14 +85,22 @@ public class CommandService {
              remoteConnection.setPassword(connectionInfo.getPassword());
              remoteConnection.setEnablePassword(connectionInfo.getEnablePassword());
              remoteConnection.setUserName(connectionInfo.getUserName());
+             hostIp = remoteConnection.getHost();
              remoteConnection.login();
         return ResponseEntity.status(HttpStatus.OK).body("logged in");
         }
         catch (NoClassDefFoundError e){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("failed Authentication");
-        } catch (InterruptedException e) {
+        } catch (InterruptedException | JSchException e) {
             throw new RuntimeException(e);
         }
     }
 
+    public List<Dir> getCommandsDir() {
+        return dirRepo.findAll();
+    }
+
+    public List<Dir> getCommandsDirType(String type) {
+        return dirRepo.getCommandeType(type) ;
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.remoatecommandsexcuter.Service.Helper;
 
+import com.jcraft.jsch.JSchException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,11 +19,11 @@ public  class RemoteConnection {
     public int port ;
     public String password ;
     public String enablePassword ;
-    public  void login() throws IOException, InterruptedException {
+    public  void login() throws IOException, InterruptedException, JSchException {
 
     }
 
-    public  String runCommand(String s){
+    public  String runCommand(String s) throws Exception {
      return null;
     }
     public  void disconnect(){

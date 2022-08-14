@@ -47,9 +47,14 @@ public class RemtotConnectionUsingTelNet extends RemoteConnection {
     }
     @Override
     public String runCommand(String command) {
-
-            write(command);
-            return readUntil1();
+        try{ write(command);
+            String result = readUntil1();
+            disconnect();
+            return result ;
+        }
+        catch (Exception e){
+            return e.getMessage() ;
+        }
 
 
     }
@@ -69,15 +74,10 @@ public class RemtotConnectionUsingTelNet extends RemoteConnection {
         readUntil1();
         write(userName);
         readUntil1();
-
         write(password);
-
         readUntil1();
-
         write("enable");
-
         readUntil1();
-
         write(enablePassword);
         readUntil1();
         write("terminal length 0");

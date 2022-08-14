@@ -13,8 +13,8 @@ import java.util.List;
 *See the package commandjob to see the commands that the system provide and don't forget to see the parent for it
 * when define the entities the command from the same type stores in one collection in the database for ex :
 * the command show is entity and has 5 child's commands(ipInternetBrief,runningConfig,Running config,vrf,version)
-*the command dir has 2 child's (boot-flash and storage)
-*every child for each command has it's own parser that responsible for parsing the and get the information from it,,,please ParserStrategy package
+*the command dir has 2 childs (boot-flash and storage)
+*every child for each command has its own parser that responsible for parsing the and get the information from it,,,please ParserStrategy package
 * every type of these children have a Components defines in Components Package
 *
 * */
@@ -22,7 +22,8 @@ public class Command {
 
     @Transient
     public transient Parser commandParser;
-    private LocalDateTime localDateTime;
+    private String hostIp ;
+      LocalDateTime localDateTime;
     public List<ComponentsParent> info;
     public Command(){
         this.localDateTime = LocalDateTime.now();
@@ -35,14 +36,15 @@ public class Command {
     public LocalDateTime getLocalDateTime() {
         return localDateTime;
     }
-
-
-
     public void setInfo(List<ComponentsParent> info) {
         this.info = info;
     }
 
+    public String getHostIp() {
+        return hostIp;
+    }
 
-
-
+    public void setHostIp(String hostIp) {
+        this.hostIp = hostIp;
+    }
 }

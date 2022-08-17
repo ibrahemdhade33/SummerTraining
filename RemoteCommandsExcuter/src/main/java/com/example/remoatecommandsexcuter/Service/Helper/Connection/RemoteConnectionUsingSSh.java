@@ -1,4 +1,4 @@
-package com.example.remoatecommandsexcuter.Service.Helper;
+package com.example.remoatecommandsexcuter.Service.Helper.Connection;
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;

@@ -1,4 +1,4 @@
-package com.example.remoatecommandsexcuter.Service.Helper;
+package com.example.remoatecommandsexcuter.Service.Helper.ParsereStrategy;
 import com.example.remoatecommandsexcuter.Service.Helper.Components.ComponentsParent;
 import org.springframework.data.annotation.Transient;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.example.remoatecommandsexcuter.Service.Helper.Command;
+package com.example.remoatecommandsexcuter.Entities;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;

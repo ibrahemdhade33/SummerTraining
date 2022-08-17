@@ -1,4 +1,4 @@
-package com.example.remoatecommandsexcuter.Service.Helper;
+package com.example.remoatecommandsexcuter.Service.Helper.Connection;
 
 
 import org.snmp4j.CommunityTarget;

@@ -6,7 +6,6 @@ import com.example.remoatecommandsexcuter.Service.Helper.Components.ComponentsPa
 import com.example.remoatecommandsexcuter.Service.Helper.Components.VrfComp;
 import com.example.remoatecommandsexcuter.Service.Helper.Components.VrfComp1;
 import com.example.remoatecommandsexcuter.Service.Helper.Components.VrfComp2;
-import com.example.remoatecommandsexcuter.Service.Helper.Parser;
 
 import java.util.ArrayList;
 import java.util.Collection;

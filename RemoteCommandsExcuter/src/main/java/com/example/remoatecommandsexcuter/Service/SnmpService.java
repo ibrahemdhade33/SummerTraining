@@ -1,9 +1,8 @@
 package com.example.remoatecommandsexcuter.Service;
 
-import com.example.remoatecommandsexcuter.Entities.Show;
 import com.example.remoatecommandsexcuter.Repositories.SnmpRepo;
 import com.example.remoatecommandsexcuter.Entities.SnmpInterfaces;
-import com.example.remoatecommandsexcuter.Service.Helper.SnmpConnection;
+import com.example.remoatecommandsexcuter.Service.Helper.Connection.SnmpConnection;
 import org.snmp4j.CommunityTarget;
 import org.snmp4j.smi.Address;
 import org.springframework.beans.factory.annotation.Autowired;

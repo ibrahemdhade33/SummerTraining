@@ -1,6 +1,6 @@
-package com.example.remoatecommandsexcuter.Service.Helper;
+package com.example.remoatecommandsexcuter.Service.Helper.Command;
 import com.example.remoatecommandsexcuter.Service.Helper.Command.Command;
-import com.example.remoatecommandsexcuter.CommandJob.*;
+
 import com.example.remoatecommandsexcuter.Service.Helper.CommandJob.*;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;

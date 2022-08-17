@@ -1,6 +1,6 @@
 package com.example.remoatecommandsexcuter.Service.Helper.Command;
 import com.example.remoatecommandsexcuter.Service.Helper.Components.ComponentsParent;
-import com.example.remoatecommandsexcuter.Service.Helper.Parser;
+import com.example.remoatecommandsexcuter.Service.Helper.ParsereStrategy.Parser;
 import org.springframework.data.annotation.Transient;
 import java.time.LocalDateTime;
 import java.util.Collection;

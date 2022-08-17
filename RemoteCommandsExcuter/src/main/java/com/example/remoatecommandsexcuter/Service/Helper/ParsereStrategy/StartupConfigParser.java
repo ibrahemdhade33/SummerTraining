@@ -1,7 +1,6 @@
 package com.example.remoatecommandsexcuter.Service.Helper.ParsereStrategy;
 import com.example.remoatecommandsexcuter.Service.Helper.Components.ComponentsParent;
 import com.example.remoatecommandsexcuter.Service.Helper.Components.StartUpConfigComp;
-import com.example.remoatecommandsexcuter.Service.Helper.Parser;
 
 import java.util.Collection;
 

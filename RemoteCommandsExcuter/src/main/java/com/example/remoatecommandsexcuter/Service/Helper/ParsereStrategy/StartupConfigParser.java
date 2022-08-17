@@ -4,7 +4,7 @@ import com.example.remoatecommandsexcuter.Service.Helper.Components.StartUpConfi
 
 import java.util.Collection;
 
-
+//parsing the startup-config command
 public class StartupConfigParser extends Parser {
     @Override
     public Collection<ComponentsParent> parseCommand(String CommandOutput) {

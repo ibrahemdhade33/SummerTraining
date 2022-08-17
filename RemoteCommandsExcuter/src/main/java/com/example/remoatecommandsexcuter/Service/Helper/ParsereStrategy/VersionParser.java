@@ -4,7 +4,7 @@ import com.example.remoatecommandsexcuter.Service.Helper.Components.ComponentsPa
 import com.example.remoatecommandsexcuter.Service.Helper.Components.VersionComp;
 
 import java.util.Collection;
-
+//parsing the show version command
 public class VersionParser extends Parser {
     @Override
     public Collection<ComponentsParent> parseCommand(String CommandOutput) {

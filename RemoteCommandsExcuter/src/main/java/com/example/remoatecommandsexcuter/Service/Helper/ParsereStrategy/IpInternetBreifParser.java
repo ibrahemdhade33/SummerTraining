@@ -5,7 +5,7 @@ import com.example.remoatecommandsexcuter.Service.Helper.Components.IpinterfaceB
 import java.util.Collection;
 
 
-
+//parsing the command show ip int brief
 public class IpInternetBreifParser extends Parser {
 
     @Override

@@ -16,7 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.List;
-
+//implement all business logic for commands
 @Service
 public class CommandService {
     @Autowired

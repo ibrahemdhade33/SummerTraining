@@ -4,7 +4,7 @@ import com.example.remoatecommandsexcuter.Service.Helper.Components.ComponentsPa
 import com.example.remoatecommandsexcuter.Service.Helper.Components.RunningConfigComp;
 
 import java.util.Collection;
-
+//parsing the show running-config command
 public class RunningConfigParser extends Parser {
     @Override
     public Collection<ComponentsParent> parseCommand(String CommandOutput) {

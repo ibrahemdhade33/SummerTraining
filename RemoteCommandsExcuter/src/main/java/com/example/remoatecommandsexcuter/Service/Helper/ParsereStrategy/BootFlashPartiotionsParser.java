@@ -4,7 +4,7 @@ import com.example.remoatecommandsexcuter.Service.Helper.Components.ComponentsPa
 
 import java.util.Collection;
 
-
+//parsing the command dir bootflash
 public class BootFlashPartiotionsParser extends Parser {
     @Override
     public Collection<ComponentsParent> parseCommand(String CommandOutput) {

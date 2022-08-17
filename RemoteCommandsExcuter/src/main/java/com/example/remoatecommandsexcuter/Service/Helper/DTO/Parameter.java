@@ -3,10 +3,9 @@ package com.example.remoatecommandsexcuter.Service.Helper.DTO;
 import com.example.remoatecommandsexcuter.Service.Helper.Connection.RemoteConnection;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-
+//DTO for login parameters
 @Getter
 @Setter
-
 @NoArgsConstructor
 @ToString
 public class Parameter {

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
-
+//business logic for snmp command
 @Service
 public class SnmpService {
     @Autowired

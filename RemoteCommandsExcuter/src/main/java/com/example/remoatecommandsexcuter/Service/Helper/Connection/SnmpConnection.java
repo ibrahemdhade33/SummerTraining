@@ -1,10 +1,6 @@
 package com.example.remoatecommandsexcuter.Service.Helper.Connection;
-
-
 import org.snmp4j.CommunityTarget;
-
 import lombok.NoArgsConstructor;
-
 import org.snmp4j.Snmp;
 import org.snmp4j.Target;
 import org.snmp4j.TransportMapping;
@@ -15,7 +11,6 @@ import org.snmp4j.util.DefaultPDUFactory;
 import org.snmp4j.util.TreeEvent;
 import org.snmp4j.util.TreeUtils;
 import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;

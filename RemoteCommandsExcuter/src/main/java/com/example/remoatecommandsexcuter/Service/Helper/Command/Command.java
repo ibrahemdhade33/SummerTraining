@@ -1,10 +1,10 @@
 package com.example.remoatecommandsexcuter.Service.Helper.Command;
-import com.example.remoatecommandsexcuter.Service.Helper.Components.ComponentsParent;
+
 import com.example.remoatecommandsexcuter.Service.Helper.ParsereStrategy.Parser;
 import org.springframework.data.annotation.Transient;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.List;
+
+
 
 
 /*this class has the main information that we want to store for each command
@@ -24,19 +24,19 @@ public class Command {
     public transient Parser commandParser;
     private String hostIp ;
       LocalDateTime localDateTime;
-    public List<ComponentsParent> info;
+    public Object info;
     public Command(){
         this.localDateTime = LocalDateTime.now();
     }
     @Transient
-    public  Collection<ComponentsParent> getParsedCommand(String CommandOutput){
+    public  Object getParsedCommand(String CommandOutput) throws Exception {
         return commandParser.parseCommand(CommandOutput);
     }
 
     public LocalDateTime getLocalDateTime() {
         return localDateTime;
     }
-    public void setInfo(List<ComponentsParent> info) {
+    public void setInfo(Object info) {
         this.info = info;
     }
 

@@ -11,6 +11,6 @@ public class VRF extends Show {
     public VRF(){
         super();
         commandParser = new VrfParser();
-        commandParser.result = new ArrayList<>();
+
     }
 }

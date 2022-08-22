@@ -10,6 +10,6 @@ public class RunningConfig extends Show {
     public RunningConfig(){
         super();
         commandParser = new RunningConfigParser();
-        commandParser.result = new ArrayList<>();
+
     }
 }

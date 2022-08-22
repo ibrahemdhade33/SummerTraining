@@ -16,8 +16,7 @@ public class BootFlashPartiotionsParser extends Parser {
                 split [i]= split[i].replaceAll("\\s+", " ").trim();
                 //System.out.println(split[i]);
                 String[] split1 = split[i].split(" ") ;
-                for(String j : split1) System.out.print(j+" ");
-                System.out.println();
+
                 if (split1.length>1){
                     String datetime = split1[3]+" " + split1[4]+" " + split1[5] +" " + split1[6]+" " + split1[7];
                     result.add(new BootFlashComp(split1[1],Long.parseLong(split1[2]),datetime,split1[8]));
@@ -25,6 +24,7 @@ public class BootFlashPartiotionsParser extends Parser {
             }
 
         }
+        System.out.println(result);
         return result ;
     }
 }

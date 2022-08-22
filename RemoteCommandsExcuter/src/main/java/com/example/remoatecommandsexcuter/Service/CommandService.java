@@ -3,7 +3,6 @@ import com.example.remoatecommandsexcuter.Entities.CommandDocument;
 import com.example.remoatecommandsexcuter.Entities.Dir;
 import com.example.remoatecommandsexcuter.Entities.Show;
 import com.example.remoatecommandsexcuter.Service.Helper.Command.CommandsMangerFactory;
-import com.example.remoatecommandsexcuter.Service.Helper.Components.ComponentsParent;
 import com.example.remoatecommandsexcuter.Repositories.CommandRepo;
 import com.example.remoatecommandsexcuter.Repositories.DirRepo;
 import com.example.remoatecommandsexcuter.Repositories.ShowRepo;
@@ -44,36 +43,45 @@ public class CommandService {
         return showRepo.getCommandeType(type);
     }
 
-    public String showExcute(String type) {
+    public Object showExcute(String type)   {
      try {
-            String output=remoteConnection.runCommand("show " + type);
+        type = type.toLowerCase() ;
+        if(type.equalsIgnoreCase("storagePartition"))
+            type="?" ;
+        else
+            type+="\n" ;
+        String output=remoteConnection.runCommand("show " + type);
 
 
-            Show sh =  (Show)factory.getCommandObject(type);
+            Show sh =  (Show)factory.getCommandObject(type.trim().toLowerCase().replaceAll("\n",""));
 
-            sh.setInfo((List<ComponentsParent>) sh.getParsedCommand(output));
+            sh.setInfo(sh.getParsedCommand(output));
             sh.setHostIp(hostIp);
             showRepo.insert(sh);
 
-            return output ;
+            return sh ;
              }
               catch (Exception e){
-            return "failed to run command please log in or be sure that the command is right";
+                  return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error in Running Command");
              }
         }
 
-    public String dirExcute(String type){
-        try {
+    public Object dirExcute(String type)  {
+    try {
+            type = type.toLowerCase() ;
+            if(type.equalsIgnoreCase("storagePartition"))
+                type="?" ;
+            else
+                type+="\n" ;
             String output= remoteConnection.runCommand("dir " + type);
             Dir dir =  (Dir) factory.getCommandObject(type);
-            dir.setInfo((List<ComponentsParent>) dir.getParsedCommand(output));
+            dir.setInfo( dir.getParsedCommand(output));
             dir.setHostIp(hostIp);
             dirRepo.insert(dir);
-
-            return output ;
-        }
+            return dir ;
+       }
         catch (Exception e){
-            return "failed to run command please log in or be sure that the command is right";
+            return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error in Running Command");
         }
 
     }
@@ -102,5 +110,13 @@ public class CommandService {
 
     public List<Dir> getCommandsDirType(String type) {
         return dirRepo.getCommandeType(type) ;
+    }
+
+    public List<Dir> getDirByHostIp(String hostIp) {
+        return dirRepo.getByHostIp(hostIp) ;
+    }
+
+    public List<Show> getShowByHostIp(String hostIp) {
+        return showRepo.getByHostIp(hostIp) ;
     }
 }

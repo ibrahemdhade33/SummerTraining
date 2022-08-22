@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 public class CommandsMangerFactory {
 
     public Command getCommandObject(String type){
-
+        type = type.trim() ;
         if(type.equals("ip interface brief"))
             return new IpInterfaceBrief() ;
         else if(type.equals("bootflash:"))
             return new BootFlashPartitions() ;
         else if(type.equals("vrf"))
             return new VRF() ;
-        else if(type.equals(String.valueOf(Types.Question)))
+        else if(type.equals("?"))
             return new StoragePartitions();
         else if(type.equals("running-config"))
             return new RunningConfig() ;

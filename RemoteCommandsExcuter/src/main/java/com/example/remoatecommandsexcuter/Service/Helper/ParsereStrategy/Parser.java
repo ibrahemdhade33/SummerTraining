@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public abstract class Parser {
     @Transient
-    public abstract Collection<ComponentsParent> parseCommand(String CommandOutput);
+    public abstract Object parseCommand(String CommandOutput) throws Exception;
     @Transient
     public  List<ComponentsParent> result ;
 }

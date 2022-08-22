@@ -15,6 +15,6 @@ public class Parameter {
 
     public Parameter(RemoteConnection remoteConnection, String type) {
         this.remoteConnection = remoteConnection;
-        this.type = type;
+        this.type = type ;
     }
 }

@@ -1,25 +1,20 @@
 package com.example.remoatecommandsexcuter.Service.Helper.ParsereStrategy;
-
-import com.example.remoatecommandsexcuter.Service.Helper.Components.ComponentsParent;
-
-
 import com.example.remoatecommandsexcuter.Service.Helper.Components.VrfComp;
 import com.example.remoatecommandsexcuter.Service.Helper.Components.VrfComp1;
 import com.example.remoatecommandsexcuter.Service.Helper.Components.VrfComp2;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 //paring show vrf command
 public class VrfParser extends Parser {
     @Override
-    public Collection<ComponentsParent> parseCommand(String CommandOutput) {
+    public VrfComp parseCommand(String CommandOutput)  {
 
-
+        List<VrfComp2>compList2 =null;
+        List<VrfComp1> comp1List =null ;
         String []split = CommandOutput.split("\n");
         if (split.length>2){
-            List<VrfComp1> comp1List = new ArrayList<>();
+             comp1List = new ArrayList<>();
             int i ;
             for (i = 2; !split[i].equals(""); i++) {
                 System.out.println(split[i]);
@@ -36,14 +31,14 @@ public class VrfParser extends Parser {
 
             }
             i+=2 ;
-            List<VrfComp2>compList2 =new ArrayList<>();
+            compList2 =new ArrayList<>();
             for(;i< split.length;i++){
                 String[] split1 = split[i].split("\\s{2,}");
                 if(split1.length>1)
                     compList2.add(new VrfComp2(split1[1],Integer.parseInt(split1[2]),split1[3]));
             }
-            result.add(new VrfComp(comp1List,compList2));
         }
-        return result ;
+
+        return new VrfComp(comp1List,compList2);
     }
 }

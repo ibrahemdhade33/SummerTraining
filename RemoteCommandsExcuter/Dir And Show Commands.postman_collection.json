@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "83f64dac-7d23-4cd6-90cb-516941ea3442",
+		"name": "Dir And Show Commands",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21843054"
+	},
+	"item": [
+		{
+			"name": "LogIn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"remoteConnection\" : {\n  \"host\": \"192.168.56.101\",\n  \"userName\": \"ibraheem\",\n  \"port\": 22,\n  \"password\": \"24122001\",\n  \"enablePassword\": \"1234\"},\n  \"type\":\"SSH\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9010/Command/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9010",
+					"path": [
+						"Command",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StoragePartitions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/Command/Execute/Dir/storagePartition",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"Command",
+						"Execute",
+						"Dir",
+						"storagePartition"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BootFlash",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/Command/Execute/Dir/bootflash:",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"Command",
+						"Execute",
+						"Dir",
+						"bootflash:"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "version",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/Command/Execute/Show/version",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"Command",
+						"Execute",
+						"Show",
+						"version"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ip interface brief",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/Command/Execute/Show/ip interface brief",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"Command",
+						"Execute",
+						"Show",
+						"ip interface brief"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Startup-config",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/Command/Execute/Show/startup-config",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"Command",
+						"Execute",
+						"Show",
+						"startup-config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "running-config",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/Command/Execute/Show/startup-config",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"Command",
+						"Execute",
+						"Show",
+						"startup-config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vrf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/Command/Execute/Show/vrf",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"Command",
+						"Execute",
+						"Show",
+						"vrf"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

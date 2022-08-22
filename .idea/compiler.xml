@@ -11,6 +11,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="BooksWebSite" target="1.5" />
+      <module name="demo" target="1.5" />
       <module name="RemoateCommandsExcuter" target="17" />
     </bytecodeTargetLevel>
   </component>

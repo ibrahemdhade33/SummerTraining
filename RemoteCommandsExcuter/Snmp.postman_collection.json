@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "d09b6f92-96fa-4a06-a5fc-fad353e14c4c",
+		"name": "Snmp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21843054"
+	},
+	"item": [
+		{
+			"name": "ExecuteSnmp",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/Snmp/192.168.56.101/.1.3.6.1.2.1.2.2",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"Snmp",
+						"192.168.56.101",
+						".1.3.6.1.2.1.2.2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllSnmpResults",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/Snmp/getAll",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"Snmp",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSnmpByHostIp",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/Snmp/getByHostIp/192.168.56.101",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"Snmp",
+						"getByHostIp",
+						"192.168.56.101"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

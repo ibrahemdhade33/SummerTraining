@@ -7,8 +7,11 @@ import java.util.Collection;
 //parsing the startup-config command
 public class StartupConfigParser extends Parser {
     @Override
-    public Collection<ComponentsParent> parseCommand(String CommandOutput) {
-            result.add(new StartUpConfigComp(CommandOutput));
-        return result ;
+    public String parseCommand(String CommandOutput) throws Exception {
+        if(CommandOutput.equals(""))
+            throw new Exception("Error") ;
+        else
+            return CommandOutput ;
+
     }
 }

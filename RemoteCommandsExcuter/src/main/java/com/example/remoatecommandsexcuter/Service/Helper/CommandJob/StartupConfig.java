@@ -12,7 +12,7 @@ public class StartupConfig extends Show {
     public StartupConfig(){
         super();
         commandParser = new StartupConfigParser();
-        commandParser.result = new ArrayList<>() ;
+
     }
 
 }

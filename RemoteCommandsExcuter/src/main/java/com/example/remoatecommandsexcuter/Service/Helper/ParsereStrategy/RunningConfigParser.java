@@ -7,8 +7,10 @@ import java.util.Collection;
 //parsing the show running-config command
 public class RunningConfigParser extends Parser {
     @Override
-    public Collection<ComponentsParent> parseCommand(String CommandOutput) {
-        result.add(new RunningConfigComp(CommandOutput)) ;
-        return result ;
+    public Object parseCommand(String CommandOutput) throws Exception {
+        if(CommandOutput.equals(""))
+            throw new Exception("Error") ;
+        else
+            return CommandOutput ;
     }
 }

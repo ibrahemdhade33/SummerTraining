@@ -23,7 +23,7 @@ public class SnmpController {
         return "welcome to snmp" ;
     }
     @RequestMapping("/{hostIp}/{entityOid}")
-    public SnmpInterfaces excuteSnmp(@PathVariable("hostIp")String hostIp, @PathVariable("entityOid") String entityOid) throws IOException {
+    public Object excuteSnmp(@PathVariable("hostIp")String hostIp, @PathVariable("entityOid") String entityOid) throws IOException {
         return snmpService.executeSnmp(hostIp,entityOid);
     }
     @RequestMapping(value = "/getAll",method = RequestMethod.GET)

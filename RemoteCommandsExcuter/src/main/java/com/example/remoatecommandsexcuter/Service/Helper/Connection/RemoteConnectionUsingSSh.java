@@ -41,11 +41,12 @@ public class RemoteConnectionUsingSSh extends RemoteConnection{
 
     @Override
     public String runCommand(String command) throws Exception {
-        try{  ps.println(command);
+        try{
+            ps.print(command);
 
             String result = printResult() ;
             Thread.sleep(100);
-            System.out.println(result);
+
             disconnect();
             return result;
         }

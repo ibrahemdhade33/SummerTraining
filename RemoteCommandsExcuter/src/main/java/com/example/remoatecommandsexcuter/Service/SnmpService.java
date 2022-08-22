@@ -6,6 +6,8 @@ import com.example.remoatecommandsexcuter.Service.Helper.Connection.SnmpConnecti
 import org.snmp4j.CommunityTarget;
 import org.snmp4j.smi.Address;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,7 +20,7 @@ public class SnmpService {
     SnmpRepo snmpRepo ;
     @Autowired
     SnmpConnection snmpConnection;
-    public SnmpInterfaces executeSnmp(String hostIp,String entityOid) {
+    public Object executeSnmp(String hostIp,String entityOid) {
         try {
             CommunityTarget<Address> target = snmpConnection.creatConnection(hostIp);
             Map<String,String> result =snmpConnection.doWalk(entityOid,target);
@@ -28,9 +30,8 @@ public class SnmpService {
         }
         catch (Exception ignored)
         {
-
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("there is an error with info you entered") ;
         }
-        return null ;
 
     }
 

@@ -7,9 +7,9 @@ public class jsch {
     public static void main(String[] args) throws JSchException, IOException, InterruptedException {
             Session session = createSession();
             //run the command here
-            //every line represent a command
+            //every line represent a command(split every shell input with \n'supose you are writing in a real shell')
             runcommand(session,"en\n1234\n");
-            runcommand(session,"sh run\n");
+            
             session.disconnect();
     }
     //creating the session

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RemoteCommandsExcuter/RemoateCommandsExcuter.iml" filepath="$PROJECT_DIR$/RemoteCommandsExcuter/RemoateCommandsExcuter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CommandExcuter/CommandExcuter.iml" filepath="$PROJECT_DIR$/CommandExcuter/CommandExcuter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RemoteCommandsExecutor/RemoateCommandsExcuter.iml" filepath="$PROJECT_DIR$/RemoteCommandsExecutor/RemoateCommandsExcuter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RemoteCommandsExcuter/RemoteCommandsExecutor.iml" filepath="$PROJECT_DIR$/RemoteCommandsExcuter/RemoteCommandsExecutor.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SummerTraining.iml" filepath="$PROJECT_DIR$/.idea/SummerTraining.iml" />
     </modules>
   </component>

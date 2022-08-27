@@ -6,6 +6,8 @@
         <option value="$PROJECT_DIR$/demo/demo/pom.xml" />
         <option value="$PROJECT_DIR$/BooksWebSite/pom.xml" />
         <option value="$PROJECT_DIR$/RemoteCommandsExcuter/pom.xml" />
+        <option value="$PROJECT_DIR$/RemoteCommandsExecutor/pom.xml" />
+        <option value="$PROJECT_DIR$/CommandExcuter/pom.xml" />
       </list>
     </option>
   </component>
